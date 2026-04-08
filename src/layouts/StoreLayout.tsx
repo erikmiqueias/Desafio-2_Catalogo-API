@@ -1,11 +1,20 @@
+import { CatalogControls } from "@/components/CatalogControls";
 import { CategoryFilter } from "@/components/CategoryFilter";
 import { StoreHeader } from "@/components/StoreHeader";
 
 export const StoreLayout = () => {
   return (
-    <div className="max-w-360 flex flex-col justify-center p-8 mx-auto">
-      <StoreHeader />
-      <CategoryFilter />
+    <div className="max-w-360 mx-auto p-8 grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-8 items-start">
+      <header className="lg:col-span-full">
+        <StoreHeader />
+      </header>
+      <aside>
+        <CategoryFilter />
+      </aside>
+      <main className="flex flex-col gap-6">
+        <CatalogControls />
+      </main>
+      <footer className="lg:col-span-full"> </footer>
     </div>
   );
 };
