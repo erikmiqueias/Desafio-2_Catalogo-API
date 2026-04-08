@@ -39,6 +39,8 @@ export function useProducts() {
     return processedList;
   }, [rawProducts, category, sort]);
 
+  console.log(rawProducts);
+
   return {
     products: filteredAndSortedProducts,
     totalCount: filteredAndSortedProducts.length,

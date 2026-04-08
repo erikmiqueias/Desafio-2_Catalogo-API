@@ -19,7 +19,9 @@ export const CategoryFilter = () => {
   return (
     <Card className="h-full">
       <CardContent className="space-y-2">
-        <p className="text-blue-800 font-bold text-xs">FILTERS</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-700">
+          FILTERS
+        </p>
         <h3 className="text-xl font-bold">Shop by Category</h3>
         <p>
           Narrow the catalog quickly white keeping the product grid as the main

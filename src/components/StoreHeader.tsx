@@ -12,9 +12,11 @@ export const StoreHeader = () => {
   return (
     <header className="w-full">
       <Card>
-        <CardContent className="flex justify-between">
+        <CardContent className="flex justify-between flex-wrap gap-5">
           <div className="space-y-2">
-            <p className="text-blue-800 font-bold">FAKE STORE API</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-700">
+              FAKE STORE API
+            </p>
             <h1 className="text-3xl font-bold">Product Catalog</h1>
             <p>Browse products, filter by category, and sort by price.</p>
           </div>

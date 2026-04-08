@@ -11,10 +11,10 @@ export const FilterItem = ({ label, isActive, onClick }: FilterItemProps) => {
     <li className="list-none">
       <Button
         onClick={onClick}
-        className={`w-full flex items-center justify-between text-sm transition-colors rounded-2xl p-5 ${
+        className={`w-full flex items-center justify-between text-sm transition-colors rounded-2xl p-5  ${
           isActive
             ? "font-medium bg-amber-100 text-foreground"
-            : "bg-transparent text-muted-foreground"
+            : "bg-transparent text-muted-foreground hover:bg-gray-100"
         }`}
       >
         <span className="capitalize">{label}</span>

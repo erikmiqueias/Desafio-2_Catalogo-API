@@ -36,8 +36,8 @@ export function ProductCard({ product }: { product: Product }) {
       </CardHeader>
 
       <CardFooter className="flex justify-between mt-auto text-sm text-muted-foreground">
-        <span>Rating: 5</span>
-        <span>20 reviews</span>
+        <span>Rating: {product.rating.rate} / 5</span>
+        <span>{product.rating.count} reviews</span>
       </CardFooter>
     </Card>
   );

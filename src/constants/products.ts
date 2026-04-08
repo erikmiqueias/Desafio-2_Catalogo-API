@@ -9,6 +9,10 @@ export const productSchema = z.object({
   description: z.string(),
   category: productCategorySchema,
   image: z.url(),
+  rating: z.object({
+    rate: z.number(),
+    count: z.number(),
+  }),
 });
 
 export type Product = z.infer<typeof productSchema>;
