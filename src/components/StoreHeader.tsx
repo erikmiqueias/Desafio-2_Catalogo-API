@@ -1,7 +1,14 @@
+import { useSearchParams } from "react-router";
+
+import { useProducts } from "@/hooks/use-products";
+
 import { StoreBadge } from "./StoreBadge";
 import { Card, CardContent } from "./ui/card";
 
 export const StoreHeader = () => {
+  const { totalCount } = useProducts();
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || "All products";
   return (
     <header className="w-full">
       <Card>
@@ -12,8 +19,8 @@ export const StoreHeader = () => {
             <p>Browse products, filter by category, and sort by price.</p>
           </div>
           <div className="space-x-2 self-end">
-            <StoreBadge label="CATEGORY" value={"All products"} />
-            <StoreBadge label="SHOWING" value={20} />
+            <StoreBadge label="CATEGORY" value={category} />
+            <StoreBadge label="SHOWING" value={totalCount} />
           </div>
         </CardContent>
       </Card>
