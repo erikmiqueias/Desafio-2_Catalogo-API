@@ -1,0 +1,24 @@
+import { PRODUCT_CATEGORIES } from "@/constants/categories";
+
+import { FilterItem } from "./FilterItem";
+import { Card, CardContent } from "./ui/card";
+
+export const CategoryFilter = () => {
+  return (
+    <Card>
+      <CardContent className="space-y-2">
+        <p className="text-blue-800 font-bold text-xs">FILTERS</p>
+        <h3 className="text-xl font-bold">Shop by Category</h3>
+        <p>
+          Narrow the catalog quickly white keeping the product grid as the main
+          focus.
+        </p>
+        <div className="mt-5 space-y-2">
+          {PRODUCT_CATEGORIES.map((category) => (
+            <FilterItem label={category} key={category} />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
