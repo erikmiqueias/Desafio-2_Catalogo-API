@@ -6,10 +6,11 @@ interface FilterItemProps {
   onClick?: () => void;
 }
 
-export const FilterItem = ({ label, isActive }: FilterItemProps) => {
+export const FilterItem = ({ label, isActive, onClick }: FilterItemProps) => {
   return (
     <li className="list-none">
       <Button
+        onClick={onClick}
         className={`w-full flex items-center justify-between text-sm transition-colors rounded-2xl p-5 ${
           isActive
             ? "font-medium bg-amber-100 text-foreground"

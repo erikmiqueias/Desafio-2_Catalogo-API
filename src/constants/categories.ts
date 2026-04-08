@@ -3,7 +3,7 @@ import { z } from "zod";
 export const PRODUCT_CATEGORIES = [
   "All products",
   "Electronics",
-  "Jewelry",
+  "Jewelery",
   "Men's clothing",
   "Women's clothing",
 ] as const;

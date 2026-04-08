@@ -1,7 +1,25 @@
+import { useSearchParams } from "react-router";
+
 import { Card, CardContent } from "./ui/card";
-import { Select, SelectTrigger, SelectValue } from "./ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 export const CatalogControls = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentSort = searchParams.get("sort") || "asc";
+
+  const handleSortChange = (sort: string) => {
+    setSearchParams((prevSort) => {
+      prevSort.set("sort", sort);
+      return prevSort;
+    });
+  };
+
   return (
     <Card>
       <CardContent className="flex justify-between">
@@ -16,10 +34,14 @@ export const CatalogControls = () => {
 
         <div className="self-end">
           <span>Sort by price</span>
-          <Select>
+          <Select value={currentSort} onValueChange={handleSortChange}>
             <SelectTrigger className="mt-2">
-              <SelectValue placeholder="Featured" />
+              <SelectValue placeholder="Price sorting" />
             </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="asc">Price: Low to High</SelectItem>
+              <SelectItem value="desc">Price: High to Low</SelectItem>
+            </SelectContent>
           </Select>
         </div>
       </CardContent>

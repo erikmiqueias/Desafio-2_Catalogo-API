@@ -1,9 +1,21 @@
+import { useSearchParams } from "react-router";
+
 import { PRODUCT_CATEGORIES } from "@/constants/categories";
 
 import { FilterItem } from "./FilterItem";
 import { Card, CardContent } from "./ui/card";
 
 export const CategoryFilter = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const currentCategory = searchParams.get("category") || "All products";
+
+  const handleCategoryChange = (category: string) => {
+    setSearchParams((prevCategory) => {
+      prevCategory.set("category", category);
+      return prevCategory;
+    });
+  };
   return (
     <Card className="h-full">
       <CardContent className="space-y-2">
@@ -15,7 +27,12 @@ export const CategoryFilter = () => {
         </p>
         <div className="mt-5 space-y-2">
           {PRODUCT_CATEGORIES.map((category) => (
-            <FilterItem label={category} key={category} />
+            <FilterItem
+              label={category}
+              key={category}
+              onClick={() => handleCategoryChange(category)}
+              isActive={category === currentCategory}
+            />
           ))}
         </div>
       </CardContent>
